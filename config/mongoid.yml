@@ -1,0 +1,17 @@
+development:
+  clients:
+    default:
+      uri: mongodb+srv://santi:tqji57kwZKOs8NB0@cluster0.lq1pb.mongodb.net/?retryWrites=true&w=majority
+      options:
+        server_selection_timeout: 5
+
+test:
+  clients:
+    default:
+      database: b3_crawler_test
+      hosts:
+        - localhost:27017
+      options:
+        read:
+          mode: :primary
+        max_pool_size: 1
