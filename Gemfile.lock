@@ -233,7 +233,7 @@ GEM
       thor (~> 1.0)
       tilt (~> 2.0)
       yard (~> 0.9, >= 0.9.24)
-    sorbet-runtime (0.5.10549)
+    sorbet-runtime (0.5.10554)
     syntax_tree (5.0.1)
       prettier_print (>= 1.1.0)
     thor (1.2.1)
