@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 module Crawler
   class PricesService
     class << self
-      BASE_URL = 'https://valorinveste.globo.com/cotacoes/'.freeze
+      BASE_URL = 'https://valorinveste.globo.com/cotacoes/'
 
       def run(symbol)
         response = HTTParty.get(BASE_URL)
@@ -32,6 +34,8 @@ module Crawler
         date = document.search('h2.vd-table__desc__title').map(&:text).pop.gsub(/(^Atualizado em: | às)/, '')
         { latest_update: DateTime.strptime(date, '%d/%m/%Y %H:%M').to_time }
       end
+
+      # adicionar persistência dos dados
     end
   end
 
