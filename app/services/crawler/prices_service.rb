@@ -13,7 +13,7 @@ module Crawler
       def fetch_symbol_data(symbol, response)
         document ||= Nokogiri::HTML(response.body)
         rows = document.css("tbody.vd-table__body tr[contains('#{symbol}')] td.table-date-value")
-        return nil if rows.empty?
+        raise UnavailableSymbolError if rows.empty?
 
         rows.map { |row| row.text.squish }
       end
@@ -32,4 +32,6 @@ module Crawler
       end
     end
   end
+
+  class UnavailableSymbolError < StandardError; end
 end
