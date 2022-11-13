@@ -10,6 +10,8 @@ module Crawler
         parse_action_info(stock_data, update_time)
       end
 
+      private
+
       def fetch_symbol_data(symbol, response)
         document ||= Nokogiri::HTML(response.body)
         rows = document.css("tbody.vd-table__body tr[contains('#{symbol}')] td.table-date-value")
