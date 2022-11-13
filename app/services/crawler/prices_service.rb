@@ -6,7 +6,7 @@ module Crawler
       def run(symbol)
         response = HTTParty.get(BASE_URL)
         update_time = price_update_time(response)
-        stock_data = fetch_symbol_data(symbol, response)
+        stock_data = fetch_symbol_data(symbol.upcase, response)
         parse_action_info(stock_data, update_time)
       end
 
